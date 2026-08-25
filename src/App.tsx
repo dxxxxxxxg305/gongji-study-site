@@ -272,7 +272,6 @@ export default function App() {
           <Menu size={22} />
         </button>
         <NavLink to="/" className="brand" aria-label="公基研习册首页">
-          <span className="brand__seal">基</span>
           <span className="brand__text">
             <strong>公基研习册</strong>
             <small>每日积累 · 温故知新</small>
