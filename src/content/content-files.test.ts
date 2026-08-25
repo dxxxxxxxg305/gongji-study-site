@@ -5,7 +5,11 @@ import { searchEntries, studyContent } from './content'
 describe('bundled study materials', () => {
   it('loads the overview and all currently available daily files', () => {
     expect(studyContent.overview.kind).toBe('overview')
-    expect(studyContent.days.map((day) => day.day)).toEqual([1])
+    const dayNumbers = studyContent.days.map((day) => day.day)
+    expect(dayNumbers.length).toBeGreaterThan(0)
+    expect(dayNumbers).toEqual([...dayNumbers].sort((left, right) => left - right))
+    expect(new Set(dayNumbers).size).toBe(dayNumbers.length)
+    expect(dayNumbers).toContain(1)
     expect(studyContent.days[0].questions).toHaveLength(8)
   })
 
